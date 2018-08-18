@@ -1,0 +1,14 @@
+.content-wrapper {
+    background-color: $nav-bg;
+    margin-left: 262px;
+    z-index: 820;
+    @media (max-width: 600px) {
+        margin-left: 0;
+    }
+}
+
+.container {
+    position: relative;
+    top: 100px;
+    margin-bottom: 30px;
+}

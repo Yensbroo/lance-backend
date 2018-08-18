@@ -1,0 +1,14 @@
+#bootstrap-override .alert {
+    position: fixed;
+    right: 46px;
+    bottom: 65px;
+    background: $lnc-green;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    border-radius: 6px;
+    border: 1px solid #37A28D;
+    transition: display 0.2s;
+}

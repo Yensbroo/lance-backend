@@ -1,0 +1,22 @@
+input, .select_style, .search {
+    border: 1px solid $border;
+    border-radius: 6px;
+    padding-left: 14px;
+}
+
+label {
+    color: #B4B4B4;
+}
+
+.left {
+    float: left;
+}
+
+.search {
+    float: right;
+}
+
+#project textarea {
+    height: 450px;
+    resize: none;
+}

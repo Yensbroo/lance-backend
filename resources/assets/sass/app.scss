@@ -1,0 +1,25 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+
+// Variables
+@import "variables";
+@import "layout/header";
+@import "layout/sidebar";
+@import "layout/content";
+@import "layout/project";
+@import "layout/login";
+@import "components/tables";
+@import "components/forms";
+@import "components/buttons";
+@import "components/pagination";
+@import "components/warnings";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+a {
+  text-decoration: none;
+  color: $sidenav-bg;
+}
+

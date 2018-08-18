@@ -1,0 +1,40 @@
+table {
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #E0E0E0;
+    width: 99%;
+}
+
+thead {
+    border-bottom: 1px solid #CFCFCF;
+}
+
+th {
+    padding: 10px 16px;
+}
+
+td {
+    padding: 28px 16px;
+}
+
+tr:nth-child(even) {
+    background-color: $nav-bg;
+}
+
+ #bootstrap-override h3 {
+    font-family: $lnc-heading;
+    font-size: 29px;
+    font-weight: bold;
+    color: $lnc-blue;
+    padding-bottom: 10px;
+}
+
+.actions {
+    padding-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.actions:hover {
+    color: $lnc-blue;
+}

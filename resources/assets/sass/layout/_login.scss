@@ -1,0 +1,36 @@
+.logo-login {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+#lnc-login {
+    width: 250px;
+}
+
+.logo-login h4 {
+    font-weight: 200;
+    margin-top: 20px;
+}
+
+.logo-login h4:before {
+    border: 1px solid $border;
+    width: 100px;
+}
+
+.login {
+    form {
+        margin-top: 40px;
+    }
+
+    input {
+        transition: padding 0.2s;
+        
+    }
+
+    input:focus {
+        padding: 10px;
+    }
+}
+
+

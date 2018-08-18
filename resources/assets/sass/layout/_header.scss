@@ -1,0 +1,78 @@
+.lnc-main-header {
+    position: fixed;
+    z-index: 840;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: $nav-bg;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #CFCFCF;
+}
+
+.lnc-main-header::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.lnc-nav {
+    display: block;
+    float: right;
+    height: 100%;
+    transition: width 0.5s;
+    @media (max-width: 600px){
+        width: 0px;
+    }
+
+    .user-name {
+        position: relative;
+        right: 30px;
+    }
+
+    .logout {
+        font-size: 20px;
+        padding-top: 14px;
+        padding-right: 20px;
+    }
+}
+
+.lnc-logo {
+    width: 250px;
+    display: block;
+    float: left;
+    height: 50px;
+    text-align: center;
+    background-color: $logo-bg;
+    transition: width 0.2s;
+    z-index: 840;
+    @media (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+#lance {
+    width: 80px;
+    margin-top: 7px;
+}
+
+.hmbrgr {
+    position: relative;
+    top: 14px;
+    left: 16px;
+    float: left;
+    visibility: hidden;
+    color: white;
+    @media (max-width: 600px) {
+        visibility: initial;
+    }
+    cursor: pointer;
+}
+
+.hmbrgr .fa-bars{
+    font-size: 23px;
+}
+
+.user-name {
+    margin-top: 20px;
+}

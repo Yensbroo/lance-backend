@@ -1,0 +1,33 @@
+.pagination {
+    margin-top: 20px;
+
+    li:first-child {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        border-left: 1px solid $border;
+    }
+    
+    li:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    
+    li{
+        background-color: white;
+        padding: 10px;
+        border-right: 1px solid $border;
+        border-top: 1px solid $border;
+        border-bottom: 1px solid $border;
+    }
+    
+    .active {
+        background: $lnc-blue;
+        color: white;
+    }
+
+    .ais-previous, .ais-next {
+        display:none;
+    }
+}
+
+
