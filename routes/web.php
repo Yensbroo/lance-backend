@@ -32,4 +32,5 @@ Route::post('/categories', 'CategoryController@store');
 //user routes
 Route::get('/users', 'UserController@index');
 Route::get('/user/create', 'UserController@create');
+Route::post('/users', 'UserController@store')->name('users');
 

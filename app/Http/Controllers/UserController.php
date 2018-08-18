@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role;
+use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,6 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('role')->paginate(7);
-        $users->load('role');
         return view('users.index', compact('users'));
     }
 
@@ -40,7 +40,28 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $user = $request->validate([
+                'full_name' => 'required',
+                'email' => 'required|unique:users|email',
+                'role_id' => 'required',
+                'password' => 'required|min:6',
+                'password2' => 'required|same:password'
+            ]);
+            $user = $request->only([
+                'full_name',
+                'email',
+                'password',
+                'role_id'
+            ]);
+            $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
+            USER::create($user);
+            return redirect('/users')->with('flash', 'De gebruiker is aangemaakt!');
+        } catch (ValidationException $exception) {
+            dd($exception);
+        } catch(\Exception $exception) {
+            dd($exception);
+        }
     }
 
     /**

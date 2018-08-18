@@ -3,11 +3,11 @@
   <div class="content">
     <div class="container" id="project">
       <h3>Maak een nieuwe gebruiker aan</h3>
-      <form method="POST" action="/projects">
+      <form method="POST" action="/users">
         {{ csrf_field() }}
 
         <div class="form-group">
-          <label for="title">Volledige naam</label>
+          <label for="full_name">Volledige naam</label>
           <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" required>
         </div>
         <div class="form-group">
@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="">Rol</label>
           <br>
-          <select name="category_id" class="select_style form-control">
+          <select name="role_id" class="select_style form-control">
             <option value="">Kies een rol...</option>
             @foreach ($roles as $role)
             <option value="{{ $role->id}}" {{ old( 'role_id') == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
@@ -34,7 +34,7 @@
           <br>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn-create">Maak project</button>
+          <button type="submit" class="btn-create">Maak gebruiker aan</button>
         </div>
       </form>
     </div>
