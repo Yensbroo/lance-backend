@@ -5,7 +5,7 @@
     <div class="content">
         <div class="container">
         <h3 class="left">Overzicht gebruikers</h3>
-        <button class="add-btn">+ Gebruiker toevoegen</button>
+        <a href="/user/create"><button class="add-btn">+ Gebruiker toevoegen</button></a>
             <table>
                 <thead>
                     <th>Naam</th>
@@ -15,7 +15,7 @@
                 </thead>
                 @foreach ($users as $user)
                 <tr>
-                    <td><a href="#">{{ $user->name }}</a></td>
+                    <td><a href="#">{{ $user->full_name }}</a></td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td><a href="/users/{{ $user->id }}"><i class="fas fa-pen-square actions"></i></a><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>

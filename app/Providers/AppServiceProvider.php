@@ -20,6 +20,10 @@ class AppServiceProvider extends ServiceProvider
         \View::composer('users.index', function($view) {
             $view->with('roles', \App\Role::all());
         });
+
+        \View::composer('users.create', function($view) {
+            $view->with('roles', \App\Role::all());
+        });
     }
 
     /**

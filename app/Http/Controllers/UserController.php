@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('role')->paginate(7);//->paginate(7)->get();
+        $users = User::with('role')->paginate(7);
+        $users->load('role');
         return view('users.index', compact('users'));
     }
 
@@ -27,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
