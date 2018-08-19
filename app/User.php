@@ -29,6 +29,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function path() {
+        return "/users/{$this->id}";
+    } 
+
     public function role()
     {
         return $this->belongsTo(Role::class);

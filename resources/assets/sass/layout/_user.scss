@@ -1,0 +1,16 @@
+.user_links {
+  ul {
+    list-style-type: none;
+    padding-top: 20px;
+    padding-left: 0;
+    li {
+      display: inline;
+      padding: 20px;
+      a {
+        font-weight: bold;
+        color: $lnc-blue;
+        text-decoration: none;
+      }
+    }
+  }
+}

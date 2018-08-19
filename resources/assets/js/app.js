@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -20,6 +19,7 @@ Vue.use(VueInstantSearch);
  */
 
 Vue.component('project', require('./components/Project.vue'));
+Vue.component('user', require('./components/User.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 
 const app = new Vue({

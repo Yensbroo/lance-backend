@@ -220,6 +220,23 @@
   padding: 10px;
 }
 
+.user_links ul {
+  list-style-type: none;
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.user_links ul li {
+  display: inline;
+  padding: 20px;
+}
+
+.user_links ul li a {
+  font-weight: bold;
+  color: #3F88C5;
+  text-decoration: none;
+}
+
 table {
   background: white;
   border-radius: 6px;
