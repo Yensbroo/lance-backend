@@ -1,4 +1,5 @@
 <script>
+const moment = require("moment");
 export default {
   props: ["attributes"],
 
@@ -6,8 +7,14 @@ export default {
     return {
       title: this.attributes.title,
       body: this.attributes.body,
-      project_end: this.attributes.project_end
+      project_end: moment(this.attributes.project_end)
+        .toISOString()
+        .slice(0, 16)
     };
+  },
+
+  created: function() {
+    console.log(this.project_end);
   },
 
   methods: {

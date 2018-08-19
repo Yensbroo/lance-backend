@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label for="endDate">Einde project</label>
                         <br>
-                        <input type="date" v-model="project_end">
+                        <input type="datetime-local" class="form-control" :value="project_end">
                         <br>
                     </div>
                     <div class="form-group">

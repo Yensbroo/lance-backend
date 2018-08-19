@@ -65,7 +65,6 @@ class ProfileController extends Controller
         try {
             $profile = Profile::with('user')->find($profile);
             return view('profiles.show', compact('profile'));
-            //dd($profile);
         } catch(ModelNotFoundException $exception) {
             return redirect('profiles.create');
         }
@@ -93,7 +92,12 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        $profileData = $request->validate([
+            'headline' => 'required',
+            'bio' => 'required',
+        ]);
+
+        $profile->update($profileData);
     }
 
     /**

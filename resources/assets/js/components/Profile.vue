@@ -15,10 +15,9 @@ export default {
 
   methods: {
     update() {
-      axios.patch("/profile/" + this.attributes.id, {
-        title: this.title,
-        body: this.body,
-        project_end: this.project_end
+      axios.patch("/profile/" + this.attributes[0].id, {
+        headline: this.attributes[0].headline,
+        bio: this.attributes[0].bio
       });
     }
   }
