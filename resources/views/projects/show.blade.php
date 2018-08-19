@@ -19,12 +19,17 @@
                     <div class="form-group">
                         <label for="startDate">Start van het project</label>
                         <br>
-                        <input type="datetime-local" class="form-control" v-model="project_start">
+                        <input type="datetime-local" class="form-control" v-model="project_start" :min="today">
                     </div>
                     <div class="form-group">
                         <label for="endDate">Einde project</label>
                         <br>
-                        <input type="datetime-local" class="form-control" v-model="project_end">
+                        <input type="datetime-local" class="form-control" v-model="project_end" :min="project_start">
+                    </div>
+                    <div class="form-group ">
+                        <label for="budget">Budget(€)</label>
+                        <br>
+                        <input type="number" class="form-control" v-model="budget" required>
                     </div>
                     <div class="form-group">
                         <label for="published">Gepubliceerd</label>

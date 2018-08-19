@@ -15,12 +15,16 @@ export default {
         .slice(0, 16),
       project_end: moment(this.attributes.project_end)
         .toISOString()
+        .slice(0, 16),
+      today: moment(new Date())
+        .toISOString()
         .slice(0, 16)
     };
   },
 
   created: function() {
     console.log(this.project_end);
+    console.log(this.today);
   },
 
   methods: {

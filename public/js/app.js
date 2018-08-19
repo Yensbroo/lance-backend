@@ -70352,13 +70352,15 @@ var moment = __webpack_require__(383);
       budget: this.attributes.budget,
       category_id: this.attributes.category_id,
       project_start: moment(this.attributes.project_start).toISOString().slice(0, 16),
-      project_end: moment(this.attributes.project_end).toISOString().slice(0, 16)
+      project_end: moment(this.attributes.project_end).toISOString().slice(0, 16),
+      today: moment(new Date()).toISOString().slice(0, 16)
     };
   },
 
 
   created: function created() {
     console.log(this.project_end);
+    console.log(this.today);
   },
 
   methods: {

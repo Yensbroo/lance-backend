@@ -34,7 +34,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $today = date('c');
+        $todayFormat = substr($today, 0, 16);
+        
+        return view('projects.create', compact('todayFormat'));
     }
 
     /**
