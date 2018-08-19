@@ -8,7 +8,12 @@
 
         <div class="form-group">
           <label for="full_name">Volledige naam</label>
-          <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" required>
+          <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" required> 
+          @if ($errors->has('email'))
+          <span class="invalid-feedback">
+            <strong>{{ $errors->first('email') }}</strong>
+          </span>
+          @endif
         </div>
         <div class="form-group">
           <label for="email">Email</label>
@@ -28,7 +33,7 @@
           <select name="role_id" class="select_style form-control">
             <option value="">Kies een rol...</option>
             @foreach ($roles as $role)
-            <option value="{{ $role->id}}" {{ old( 'role_id') == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+            <option value="{{ $role->id}}" {{ old( 'role_id')==$ role->id ? 'selected' : '' }}>{{ $role->name }}</option>
             @endforeach
           </select>
           <br>
