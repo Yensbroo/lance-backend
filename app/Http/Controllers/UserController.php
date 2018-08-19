@@ -70,8 +70,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $user, Request $request)
     {
+        $request->session()->put('user_id', $user->id);
         return view('users.show', compact('user'));
     }
 

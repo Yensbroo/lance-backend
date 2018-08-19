@@ -10,6 +10,10 @@ export default {
     };
   },
 
+  created: function() {
+    console.log();
+  },
+
   methods: {
     update() {
       axios.patch("/users/" + this.attributes.id, {

@@ -6,7 +6,7 @@
     <div class="user_links">
       <ul>
         <li><a href="">Gegevens</a></li>
-        <li><a href="">Profiel</a></li>
+        <li><a href="/profile/{{ isset($user->profile->id) ? $user->profile->id : $user->id }}">Profiel</a></li>
         <li><a href="">Statistieken</a></li>
       </ul>
     </div>

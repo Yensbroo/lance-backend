@@ -28,6 +28,8 @@ class AppServiceProvider extends ServiceProvider
         \View::composer('users.show', function($view) {
             $view->with('roles', \App\Role::all());
         });
+
+        
     }
 
     /**
