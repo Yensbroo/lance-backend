@@ -1,19 +1,38 @@
 @extends('layouts.app') @section('content')
-<project :attributes="{{ $project }}" inline-template>
+<project :attributes="{{ $project }}" :categories="{{ $categories }}" inline-template>
     <div class="content-wrapper">
         <div class="content">
             <div class="container" id="project">
                 <h3>Bewerk project</h3>
                     <div class="form-group">
-                        <label for="title">Title</label>
+                        <label for="title">Titel</label>
                         <br>
                         <input type="text" v-model="title" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="category">Categorie</label>
+                    <select v-model="category_id" class="select_style form-control">
+                            <option value="">Kies een categorie...</option>
+                                <option v-bind:value="category.id" v-for="category in categories">@{{ category.name }}</option>
+                        </select>
+                        </div>
+                    <div class="form-group">
+                        <label for="startDate">Start van het project</label>
+                        <br>
+                        <input type="datetime-local" class="form-control" v-model="project_start">
+                    </div>
+                    <div class="form-group">
                         <label for="endDate">Einde project</label>
                         <br>
-                        <input type="datetime-local" class="form-control" :value="project_end">
-                        <br>
+                        <input type="datetime-local" class="form-control" v-model="project_end">
+                    </div>
+                    <div class="form-group">
+                        <label for="published">Gepubliceerd</label>
+                        <br> 
+                        <label class="switch">
+                        <input type="checkbox" v-model="published" class="published" checked="true">
+                        <span class="slider"></span>
+                        </label>
                     </div>
                     <div class="form-group">
                         <label for="descr">Beschrijving</label>

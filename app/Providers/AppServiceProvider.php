@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', \App\Category::all());
         });
 
+        \View::composer('projects.show', function($view) {
+            $view->with('categories', \App\Category::all());
+        });
+
         \View::composer('users.index', function($view) {
             $view->with('roles', \App\Role::all());
         });
@@ -28,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         \View::composer('users.show', function($view) {
             $view->with('roles', \App\Role::all());
         });
+
+        
 
         
     }
