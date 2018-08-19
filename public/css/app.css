@@ -186,6 +186,12 @@
   color: #B4B4B4;
 }
 
+#project .errors {
+  color: #E94F37;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
 .logo-login {
   width: 100%;
   display: block;

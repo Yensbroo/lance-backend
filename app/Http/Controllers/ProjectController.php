@@ -6,6 +6,8 @@ use App\Project;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Validator;
 
 class ProjectController extends Controller
 {
@@ -48,15 +50,38 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = Project::create([
-            'user_id' => auth()->id(),
-            'category_id' => request('category_id'),
-            'project_end' => request('project_end'),
-            'title' => request('title'),
-            'body' => request('body')
-        ]);
+        
+        $rules = [
+            'category_id' => 'required',
+            'project_start' => 'required',
+            'project_end' => 'required',
+            'title' => 'required|min:5',
+            'body' => 'required|min:20',
+            'budget' => 'required',
+        ];
 
-        return redirect($project->path());
+        $messages = [
+            'category_id.required' => 'Een categorie is verplicht',
+            'project_start.required' => 'Een begin datum is verplicht',
+            'project_end.required' => 'Een eind datum is verplicht',
+            'title.required' => 'Een titel is verplicht',
+            'body.required' => 'Een beschrijving is verplicht',
+            'budget.required' => 'Een budget is verplicht',
+        ];
+
+        $project = $request->all();
+
+        $validator = Validator::make($project, $rules, $messages);
+
+        if($validator->fails()) {
+          
+           return redirect('projects/create')->withErrors($validator)->withInput();
+        }
+        Project::create($project);
+        
+        
+
+        // return redirect($project->path());
     }
 
     /**
