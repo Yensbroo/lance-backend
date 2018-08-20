@@ -29,7 +29,7 @@
                     
                 </thead>
                 <tr v-for="result in results" :key="result.objectID">
-                    <td><a v-bind:href="'projects/' + result.id">@{{ result.title }}</a></td>
+                    <td><a v-bind:href="'projects/' + result.id" class="show-link">@{{ result.title }}</a></td>
                     <td>@{{ result.created_at }}</td>
                     <td>@{{ result.project_end }}</td>
                     <td><a href="'projects/' + result.id"><i class="fas fa-pen-square actions"></i></a><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>

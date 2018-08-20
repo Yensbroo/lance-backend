@@ -15,7 +15,7 @@
                 </thead>
                 @foreach ($users as $user)
                 <tr>
-                    <td><a href="users/{{ $user->id }}">{{ $user->full_name }}</a></td>
+                    <td><a href="users/{{ $user->id }}" class="show-link">{{ $user->full_name }}</a></td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->role->name }}</td>
                     <td><a href="/users/{{ $user->id }}"><i class="fas fa-pen-square actions"></i></a><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>

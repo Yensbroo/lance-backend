@@ -284,6 +284,11 @@ tr:nth-child(even) {
   color: #3F88C5;
 }
 
+.show-link {
+  color: #3F88C5;
+  font-weight: bold;
+}
+
 input,
 .select_style,
 .search {

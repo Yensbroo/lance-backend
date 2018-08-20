@@ -14,7 +14,7 @@ class ProjectController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('auth')->except(['create', 'store']);
+        $this->middleware('auth')->except(['create', 'store']);
     }
     /**
      * Display a listing of the resource.
@@ -69,19 +69,30 @@ class ProjectController extends Controller
             'budget.required' => 'Een budget is verplicht',
         ];
 
-        $project = $request->all();
 
-        $validator = Validator::make($project, $rules, $messages);
+        $project = Project::create([
+            'user_id' => auth()->id(),
+            'body' => request('body'),
+            'category_id' => request('category_id'),
+            'project_end' => request('project_end'),
+            'project_start' => request('project_start'),
+            'title' => request('title'),
+            'budget' => request('budget')
+        ]);
+        $checked = $request->has('publised') ? 1 : 0;
+        $id = ['user_id' => auth()->id()];
 
-        if($validator->fails()) {
+        //$validator = Validator::make($project, $rules, $messages);
+
+        // if($validator->fails()) {
           
-           return redirect('projects/create')->withErrors($validator)->withInput();
-        }
-        Project::create($project);
+        //    return redirect('projects/create')->withErrors($validator)->withInput();
+        // }
+        
         
         
 
-        // return redirect($project->path());
+        return redirect($project->path());
     }
 
     /**
@@ -117,12 +128,17 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $project->update([
+            'project_start' => request('project_start'),
+            'category_id' => request('category_id'),
+            'published' => request('published'),
+            'budget' => request('budget'),
             'project_end' => request('project_end'),
             'title' => request('title'),
-            'body' => request('body')
+            'body' => request('body'),
+            'user_id' => request('user_id')
         ]);
 
-        return back()->with('flash', 'Het project is bijgewerkt!');
+        return redirect('/projects')->with('flash', 'Het project is bijgewerkt!');
     }
 
     /**
@@ -133,8 +149,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project->bids()->delete();
-        $project->delete();
+        
+        $project->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         return redirect('/projects')->with('flash', 'Project is verwijderd!');
 

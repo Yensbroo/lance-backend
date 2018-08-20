@@ -13,7 +13,7 @@
                 </thead>
                 @foreach ($categories as $category)
                 <tr>
-                    <td>{{ $category->name }}</td>
+                    <td><a href="" class="show-link">{{ $category->name }}</a></td>
                     <td>{{ $category->created_at }}</td>
                     <td>{{ $category->updated_at}}</td>
                     <td><i class="fas fa-pen-square actions"></i><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>

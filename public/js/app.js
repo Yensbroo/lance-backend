@@ -86704,6 +86704,7 @@ var moment = __webpack_require__(0);
 
   data: function data() {
     return {
+      user_id: this.attributes.user_id,
       title: this.attributes.title,
       body: this.attributes.body,
       published: this.attributes.published,
@@ -86724,8 +86725,10 @@ var moment = __webpack_require__(0);
   methods: {
     update: function update() {
       axios.patch("/projects/" + this.attributes.id, {
+        user_id: this.user_id,
         title: this.title,
         body: this.body,
+        budget: this.budget,
         category_id: this.category_id,
         project_start: this.project_start,
         published: this.published,

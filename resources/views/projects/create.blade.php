@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="startDate">Start van het project</label>
                         <br>
-                        <input type="datetime-local" class="form-control" name="project_start" min="{{$todayFormat}}">
+                        <input type="datetime-local" class="form-control" name="project_start" min="{{$todayFormat}}" value="{{ old('project_start') }}">
                         @if ($errors->has('project_start'))
                         <span class="errors">
                             <strong>{{ $errors->first('project_start') }}</strong>
@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="endDate">Einde project</label>
                         <br>
-                        <input type="datetime-local" class="form-control" name="project_end" min="{{$todayFormat}}">
+                        <input type="datetime-local" class="form-control" name="project_end" min="{{$todayFormat}}" value="{{ old('project_end') }}">
                         @if ($errors->has('project_end'))
                         <span class="errors">
                             <strong>{{ $errors->first('project_end') }}</strong>
@@ -54,7 +54,7 @@
                         <label for="published">Gepubliceerd</label>
                         <br> 
                         <label class="switch">
-                        <input type="checkbox" name="published" class="published" checked="true">
+                        <input type="checkbox" name="published" class="published" value="on">
                         <span class="slider"></span>
                         </label>
                     </div>

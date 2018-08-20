@@ -41,3 +41,5 @@ Route::get('/profile/create', 'ProfileController@create');
 Route::post('/profile', 'ProfileController@store');
 Route::patch('/profile/{profile}', 'ProfileController@update');
 
+//Admin routes
+Route::get('/admins', 'AdminController@index');

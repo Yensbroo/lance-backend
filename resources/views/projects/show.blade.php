@@ -4,7 +4,9 @@
         <div class="content">
             <div class="container" id="project">
                 <h3>Bewerk project</h3>
-                    <div class="form-group">
+                   <form action="/projects">
+                   {{ method_field('PATCH') }}
+                   <div class="form-group">
                         <label for="title">Titel</label>
                         <br>
                         <input type="text" v-model="title" class="form-control">
@@ -29,7 +31,7 @@
                     <div class="form-group ">
                         <label for="budget">Budget(€)</label>
                         <br>
-                        <input type="number" class="form-control" v-model="budget" required>
+                        <input type="number" class="form-control" v-model="budget">
                     </div>
                     <div class="form-group">
                         <label for="published">Gepubliceerd</label>
@@ -47,6 +49,7 @@
                     <div class="form-group">
                         <button class="btn-create" @click="update">Bewerk project</button>
                     </div>
+                   </form>
                 <form action="{{ $project->path() }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE')}}
