@@ -50,10 +50,6 @@
                         <button type="submit" class="btn-login">
                             {{ __('Login') }}
                         </button>
-
-                        <a class="forgot" href="{{ route('password.request') }}">
-                            Wachtwoord vergeten?
-                        </a>
                     </div>
                 </div>
             </form>
