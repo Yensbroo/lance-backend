@@ -1,4 +1,5 @@
-@extends('layouts.app') 
+@extends('layouts.app')
+
 @section('content')
 <div class="content-wrapper">
     <div class="content">
@@ -10,35 +11,22 @@
         {{ session('status') }}
     </div>
 @endif
-<template>
-  <ais-index
-    app-id="{{ config('scout.algolia.id') }}"
-    api-key="{{ env('ALGOLIA_SEARCH') }}"
-    index-name="projects"
-  >
-    <ais-input placeholder="Zoek projecten..." class="search"></ais-input>
-    
-    <ais-results :results-per-page="7" inline-template>
-    <table>
+            <table>
                 <thead>
                     <th>Titel</th>
                     <th>Gemaakt op</th>
-                    <th>Eindigt op</th>
-
                     <th>Acties</th>
-                    
                 </thead>
-                <tr v-for="result in results" :key="result.objectID">
-                    <td><a v-bind:href="'projects/' + result.id">@{{ result.title }}</a></td>
-                    <td>@{{ result.created_at }}</td>
-                    <td>@{{ result.project_end }}</td>
-                    <td><a href="'projects/' + result.id"><i class="fas fa-pen-square actions"></i></a><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>
+                @foreach ($projects as $project)
+                <tr>
+                    <td><a href="projects/{{ $project->id }}" class="show-link">{{ $project->title }}</a></td>
+                    <td>{{ $project->created_at }}</td>
+                    <td class="td-rel"><a href="/projects/{{ $project->id }}"><i class="fas fa-pen-square actions"></i></a>@if($project->deleted_at == null) <form action="/projects/delete/{{$project->id}}" method="POST"> {{ method_field('DELETE') }}
+    {{ csrf_field() }}<button type="submit" class="trans-btn"><i class="fas fa-trash actions"></i></a></form>@else<a href=""><i class="fas fa-undo-alt actions"></i></a>@endif</td>
                 </tr>
+                @endforeach
             </table>
-    </ais-results>
-    <ais-pagination v-bind:class-names="{'ais-pagination': 'pagination','ais-pagination__item--active': 'active', 'ais-pagination__item--previous': 'ais-previous', 'ais-pagination__item--next': 'ais-next'}"></ais-pagination>
-  </ais-index>
-</template>
+            {{ $projects->links("pagination::default") }}
         </div>
     </div>
 </div>
