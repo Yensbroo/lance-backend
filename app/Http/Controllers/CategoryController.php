@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class CategoryController extends Controller
             'slug' => request('name')
         ]);
 
-        return back()->with('flash', 'De categorie is toegevoegd!');
+        return redirect('/categories')->with('flash', 'De categorie is toegevoegd!');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('categories.show', compact('category'));
     }
 
     /**
@@ -76,7 +76,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        
     }
 
     /**
@@ -87,6 +87,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+    
     }
 }

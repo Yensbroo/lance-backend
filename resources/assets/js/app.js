@@ -21,6 +21,7 @@ Vue.use(VueInstantSearch);
 Vue.component('project', require('./components/Project.vue'));
 Vue.component('user', require('./components/User.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
+Vue.component('category', require('./components/Category.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 
 const app = new Vue({

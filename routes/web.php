@@ -27,7 +27,11 @@ Route::patch('/projects/{project}', 'ProjectController@update');
 
 //category routes
 Route::get('/categories', 'CategoryController@index');
+Route::get('/category/{category}', 'CategoryController@show');
+Route::patch('/category/{category}', 'CategoryController@update');
+Route::get('/categories/create', 'CategoryController@create');
 Route::post('/categories', 'CategoryController@store');
+Route::delete('/category/delete/{category}', 'CategoryController@destroy');
 
 //user routes
 Route::get('/users', 'UserController@index');

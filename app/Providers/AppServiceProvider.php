@@ -33,6 +33,10 @@ class AppServiceProvider extends ServiceProvider
             $view->with('roles', \App\Role::all());
         });
 
+        \View::composer('categories.show', function($view) {
+            $view->with('categories', \App\Category::all());
+        });
+
         
 
         

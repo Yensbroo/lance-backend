@@ -4,6 +4,12 @@
     <div class="content">
         <div class="container">
         <h3 class="left">Overzicht categoriëen</h3>
+        <a href="/categories/create"><button class="add-btn">+ Categorie toevoegen</button></a>
+        @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
             <table>
                 <thead>
                     <th>Titel</th>
@@ -13,22 +19,13 @@
                 </thead>
                 @foreach ($categories as $category)
                 <tr>
-                    <td><a href="" class="show-link">{{ $category->name }}</a></td>
+                    <td><a href="/category/{{$category->id}}" class="show-link">{{ $category->name }}</a></td>
                     <td>{{ $category->created_at }}</td>
                     <td>{{ $category->updated_at}}</td>
-                    <td><i class="fas fa-pen-square actions"></i><i class="fas fa-trash actions"></i><i class="fas fa-times-circle actions"></i></td>
+                    <td><a href="/category/{{ $category->id }}"><i class="fas fa-pen-square actions"></i></a></td>
                 </tr>
                 @endforeach
             </table>
-            <form method="POST" action="/categories">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <input type="text" name="name" id="category">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn-create">+ Categorie toevoegen</button>
-                </div>
-            </form>
             {{ $categories->links("pagination::default") }}
         </div>
     </div>
