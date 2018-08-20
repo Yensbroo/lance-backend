@@ -22,7 +22,7 @@ Route::get('/projects', 'ProjectController@index');
 Route::get('/projects/create', 'ProjectController@create');
 Route::post('/projects', 'ProjectController@store')->name('projects');
 Route::get('/projects/{project}', 'ProjectController@show');
-Route::delete('/projects/{project}', 'ProjectController@destroy');
+Route::delete('/projects/delete/{project}', ['uses' => 'ProjectController@destroy', 'as' => 'project.destroy']);
 Route::patch('/projects/{project}', 'ProjectController@update');
 
 //category routes

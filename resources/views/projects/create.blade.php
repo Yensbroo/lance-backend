@@ -50,14 +50,6 @@
                         </span>
                         @endif
                     </div>
-                    <div class="form-group">
-                        <label for="published">Gepubliceerd</label>
-                        <br> 
-                        <label class="switch">
-                        <input type="checkbox" name="published" class="published" value="on">
-                        <span class="slider"></span>
-                        </label>
-                    </div>
                     <div class="form-group ">
                         <label for="budget">Budget</label>
                         <br>

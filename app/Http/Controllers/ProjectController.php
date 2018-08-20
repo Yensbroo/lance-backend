@@ -7,6 +7,7 @@ use App\Category;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Http\RedirectResponse;
 use Validator;
 
 class ProjectController extends Controller
@@ -24,8 +25,8 @@ class ProjectController extends Controller
     public function index()
     {
 
-        $projects = Project::with('category')->get();
-        $projects->load('category');
+        $projects = Project::with('category')->paginate(7);
+       // $projects->load('category');
         return view('projects.index', compact('projects'));
     }
 
@@ -82,12 +83,6 @@ class ProjectController extends Controller
         $checked = $request->has('publised') ? 1 : 0;
         $id = ['user_id' => auth()->id()];
 
-        //$validator = Validator::make($project, $rules, $messages);
-
-        // if($validator->fails()) {
-          
-        //    return redirect('projects/create')->withErrors($validator)->withInput();
-        // }
         
         
         
@@ -145,9 +140,9 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Project $project)
+    public function destroy(Project $project): RedirectResponse
     {
         
         $project->update(['deleted_at' => date('Y-m-d H:i:s')]);

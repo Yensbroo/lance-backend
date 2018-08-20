@@ -289,6 +289,10 @@ tr:nth-child(even) {
   font-weight: bold;
 }
 
+.td-rel {
+  position: relative;
+}
+
 input,
 .select_style,
 .search {
@@ -365,7 +369,6 @@ label {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  padding: 5px 18px;
 }
 
 .add-btn {
@@ -408,6 +411,20 @@ label {
   float: right;
   position: relative;
   bottom: 62px;
+}
+
+.trans-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 20px;
+  position: absolute;
+  top: 27px;
+  left: 23px;
+}
+
+.trans-btn i {
+  color: #313638;
 }
 
 .pagination {
