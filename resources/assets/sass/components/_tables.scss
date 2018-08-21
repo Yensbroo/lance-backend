@@ -21,7 +21,7 @@ tr:nth-child(even) {
     background-color: $nav-bg;
 }
 
- #bootstrap-override h3 {
+#bootstrap-override h3 {
     font-family: $lnc-heading;
     font-size: 29px;
     font-weight: bold;
@@ -37,4 +37,13 @@ tr:nth-child(even) {
 
 .actions:hover {
     color: $lnc-blue;
+}
+
+.show-link {
+    color: $lnc-blue;
+    font-weight: bold;
+}
+
+.td-rel {
+    position: relative;
 }

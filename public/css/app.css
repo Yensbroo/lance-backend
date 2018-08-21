@@ -186,6 +186,12 @@
   color: #B4B4B4;
 }
 
+#project .errors {
+  color: #E94F37;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
 .logo-login {
   width: 100%;
   display: block;
@@ -218,6 +224,23 @@
 
 .login input:focus {
   padding: 10px;
+}
+
+.user_links ul {
+  list-style-type: none;
+  padding-top: 20px;
+  padding-left: 0;
+}
+
+.user_links ul li {
+  display: inline;
+  padding: 20px;
+}
+
+.user_links ul li a {
+  font-weight: bold;
+  color: #3F88C5;
+  text-decoration: none;
 }
 
 table {
@@ -261,6 +284,15 @@ tr:nth-child(even) {
   color: #3F88C5;
 }
 
+.show-link {
+  color: #3F88C5;
+  font-weight: bold;
+}
+
+.td-rel {
+  position: relative;
+}
+
 input,
 .select_style,
 .search {
@@ -284,6 +316,52 @@ label {
 #project textarea {
   height: 450px;
   resize: none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch .published {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 34px;
+  background-color: #CFCFCF;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.published:checked + .slider {
+  background-color: #3F88C5;
+}
+
+.published:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
 }
 
 #bootstrap-override button {
@@ -329,11 +407,45 @@ label {
   margin-bottom: 15px;
 }
 
-.btn-delete {
-  background: #E94F37;
+.btn-delete,
+.btn-undelete {
   float: right;
   position: relative;
   bottom: 62px;
+}
+
+.btn-delete {
+  background: #E94F37;
+}
+
+.btn-undelete {
+  background: #3F88C5;
+}
+
+.trans-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 20px;
+  position: absolute;
+  top: 23px;
+  left: 4px;
+}
+
+.trans-btn i {
+  color: #313638;
+}
+
+@media (max-width: 933px) {
+  .trans-btn {
+    top: 33px;
+  }
+}
+
+@media (max-width: 712px) {
+  .trans-btn {
+    top: 45px;
+  }
 }
 
 .pagination {
@@ -372,17 +484,18 @@ label {
 #bootstrap-override .alert {
   position: fixed;
   right: 46px;
-  bottom: 65px;
+  top: 80px;
   background: #44BBA4;
-  width: 200px;
+  min-width: 200px;
   height: 40px;
   text-align: center;
   padding: 8px;
   color: white;
   border-radius: 6px;
   border: 1px solid #37A28D;
-  -webkit-transition: display 0.2s;
-  transition: display 0.2s;
+  -webkit-transition: display 0.2s ease-in;
+  transition: display 0.2s ease-in;
+  z-index: 100;
 }
 
 /*!

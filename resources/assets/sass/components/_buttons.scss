@@ -11,13 +11,11 @@
     float: left;
     margin-left: 20px;
     transition: width 0.2s;
-    @media only screen 
-    and (max-width: 600px) {
+    @media only screen and (max-width: 600px) {
         margin-bottom: 10px;
         margin-left: 0;
         width: 99%;
     }
-    
 }
 
 #bootstrap-override .add-btn:hover {
@@ -39,9 +37,42 @@
     margin-bottom: 15px;
 }
 
-.btn-delete {
-    background: $lnc-red;
+.btn-delete,
+.btn-undelete {
     float: right;
     position: relative;
     bottom: 62px;
+}
+
+.btn-delete {
+    background: $lnc-red;
+}
+
+.btn-undelete {
+    background: $lnc-blue;
+}
+
+.trans-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-left: 20px;
+    position: absolute;
+    top: 23px;
+    left: 4px;
+    i {
+        color: $logo-bg;
+    }
+}
+
+@media(max-width: 933px) {
+    .trans-btn {
+        top: 33px;
+    }
+}
+
+@media(max-width: 712px) {
+    .trans-btn {
+        top: 45px;
+    }
 }

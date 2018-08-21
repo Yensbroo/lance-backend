@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 
+        'full_name', 'email', 'password', 'role_id'
     ];
 
     /**
@@ -29,8 +29,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function path() {
+        return "/users/{$this->id}";
+    } 
+
     public function role()
     {
-        return $this->belongsTo(Role::class, 'id', 'role_id');
+        return $this->belongsTo(Role::class);
+    }
+
+    public function profile() {
+        return $this->hasOne(Profile::class);
     }
 }
