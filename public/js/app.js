@@ -50267,6 +50267,7 @@ Vue.component('user', __webpack_require__(496));
 Vue.component('profile', __webpack_require__(498));
 Vue.component('category', __webpack_require__(500));
 Vue.component('admin', __webpack_require__(510));
+Vue.component('dashboard', __webpack_require__(512));
 Vue.component('flash', __webpack_require__(502));
 
 var app = new Vue({
@@ -87462,6 +87463,78 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         full_name: this.full_name,
         email: this.email,
         level_id: this.level_id
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 512 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(43)
+/* script */
+var __vue_script__ = __webpack_require__(513)
+/* template */
+var __vue_template__ = null
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Dashboard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1f65406d", Component.options)
+  } else {
+    hotAPI.reload("data-v-1f65406d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 513 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["attributes"],
+
+  data: function data() {
+    return {};
+  },
+
+
+  methods: {
+    update: function update() {
+      axios.patch("/profile/" + this.attributes[0].id, {
+        headline: this.headline,
+        bio: this.bio
       });
     }
   }

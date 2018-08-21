@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+//Dashboard route
+Route::get('/dashboard', 'DashboardController@index');
+
 Route::get('/home', 'HomeController@index')->name('home');
 //project routes
 Route::get('/projects', 'ProjectController@index');
@@ -37,12 +40,7 @@ Route::delete('/category/delete/{category}', 'CategoryController@destroy');
 //user routes
 Route::get('/users', 'UserController@index');
 Route::get('/user/create', 'UserController@create');
-<<<<<<< HEAD
-Route::post('/users', 'UserController@store')->name('users');
-Route::patch('/users/{user}', 'UserController@update');
-=======
 Route::post('/users', 'UserController@store');
->>>>>>> admins
 Route::get('/users/{user}', 'UserController@show')->name('user');
 Route::delete('/users/delete/{user}', 'UserController@destroy');
 Route::patch('/users/undelete/{user}', 'UserController@undelete');
@@ -60,3 +58,4 @@ Route::post('/admins', 'AdminController@store');
 Route::get('/admins/{admin}', 'AdminController@show');
 Route::patch('/admins/{admin}', 'AdminController@update');
 Route::delete('/admins/delete/{admin}', 'AdminController@destroy');
+

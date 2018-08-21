@@ -23,6 +23,7 @@ Vue.component('user', require('./components/User.vue'));
 Vue.component('profile', require('./components/Profile.vue'));
 Vue.component('category', require('./components/Category.vue'));
 Vue.component('admin', require('./components/Admin.vue'));
+Vue.component('dashboard', require('./components/Dashboard.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
 
 const app = new Vue({
