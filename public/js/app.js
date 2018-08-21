@@ -87440,13 +87440,14 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["attributes"],
+  props: ["attributes", "levels"],
 
   data: function data() {
     return {
       id: this.attributes.id,
       full_name: this.attributes.full_name,
-      email: this.attributes.email
+      email: this.attributes.email,
+      level_id: this.attributes.level_id
     };
   },
 

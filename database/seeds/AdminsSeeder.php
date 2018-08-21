@@ -15,6 +15,7 @@ class AdminsSeeder extends Seeder
             'email' => 'admin@mail.com',
             'full_name' => 'admin',
             'password' => bcrypt('123pass'),
+            'level_id' => 1
         ];
 
         factory(App\Admin::class)->create($admin);

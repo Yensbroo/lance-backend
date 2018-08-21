@@ -1,5 +1,5 @@
 @extends('layouts.app') @section('content')
-<admin :attributes="{{ $admin }}" inline-template>
+<admin :attributes="{{ $admin }}" :levels="{{ $levels }}" inline-template>
   <div class="content-wrapper">
     <div class="content">
       <div class="container" id="project">
@@ -11,6 +11,13 @@
         <div class="form-group">
           <label for="email">Email</label>
           <input type="text" class="form-control" v-model="email">
+        </div>
+        <div class="form-group">
+          <label for="level">Level</label>
+          <select v-model="level_id" class="select_style form-control">
+            <option value="">Kies een level...</option>
+            <option v-bind:value="level.id" v-for="level in levels">@{{ level.name }}</option>
+          </select>
         </div>
         <div class="form-group">
           <button @click="update" class="btn-create">Bewerk admin</button>

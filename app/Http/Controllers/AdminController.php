@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
-
+use App\Level;
+use App\User;
+use Validator;
 class AdminController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admins = Admin::all();
+        $admins = Admin::with('level')->get();
         return view('admins.index', compact('admins'));
     }
 
@@ -25,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admins.create');
     }
 
     /**
@@ -36,7 +38,64 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $rules = [
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+                'password2' => 'required|same:password',
+                'level_id' => 'required'
+            ];
+    
+            $messages = [
+                'email.required' => 'E-mailadres is verplicht',
+                'password.required' => 'Wachtwoord  is verplicht',
+                'password2.required' => 'Herhaal het wachtwoord',
+                'password2.same' => 'Wachtwoord is niet hezelfde',
+                'level_id.required' => 'Level is verplicht'
+            ];
+    
+            [
+                'email' => $email,
+                'password' => $password
+            ] = $request->only([
+                'email',
+                'password',
+                'level_id'
+            ]);
+    
+            $validate = Validator::make($request->all(), $rules, $messages);
+    
+            if($validate->fails()) {
+    
+                return redirect('admins/create')->withErrors($validate)->withInput();
+            }
+            $admin = $request->all();
+            $admin['password'] = password_hash($admin['password'], PASSWORD_BCRYPT);
+            $user = User::where('email', $email)->first();
+            if($user) {
+                
+                $isAdmin = Admin::where('email', $email)->first();
+
+                if($isAdmin) {
+                    $errors = [
+                        'isAdmin' => "Er bestaat al een administrator met dit emailadres"
+                    ];
+                    return redirect('admins/create')->withErrors($errors)->withInput();
+                }
+                $admin['full_name'] = $user['full_name'];
+                $admin = Admin::create($admin); 
+                return view('admins.show', compact('admin'));
+            } else {
+                $errors = [
+                    'noUser' => 'Er bestaat geen gebruiker met deze email'
+                ];
+                return redirect('admins/create')->withErrors($errors)->withInput();
+            }
+            
+        } catch(\Exception $exception) {
+            dd($exception);
+        }
+       
     }
 
     /**

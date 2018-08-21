@@ -1,12 +1,13 @@
 <script>
 export default {
-  props: ["attributes"],
+  props: ["attributes", "levels"],
 
   data() {
     return {
       id: this.attributes.id,
       full_name: this.attributes.full_name,
-      email: this.attributes.email
+      email: this.attributes.email,
+      level_id: this.attributes.level_id
     };
   },
 

@@ -16,7 +16,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'password'
+        'full_name', 'email', 'password', 'level_id'
     ];
 
     /**
@@ -27,4 +27,8 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function level() {
+       return $this->belongsTo(Level::class);
+    }
 }

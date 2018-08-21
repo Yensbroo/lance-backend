@@ -37,6 +37,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with('categories', \App\Category::all());
         });
 
+        \View::composer('admins.create', function($view) {
+            $view->with('levels', \App\Level::all());
+        });
+
+        \View::composer('admins.show', function($view) {
+            $view->with('levels', \App\Level::all());
+        });
+
         
 
         
