@@ -12,7 +12,7 @@ class ProjectsSeeder extends Seeder
     public function run()
     {
 
-        factory(App\Project::class, 50)->create();
+        factory(App\Project::class, 100)->create();
     }
 
 }
