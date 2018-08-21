@@ -1,0 +1,26 @@
+<script>
+export default {
+  props: ["attributes"],
+
+  data() {
+    return {
+      id: this.attributes.id,
+      full_name: this.attributes.full_name,
+      email: this.attributes.email
+    };
+  },
+
+  created: function() {
+    console.log();
+  },
+
+  methods: {
+    update() {
+      axios.patch("/admins/" + this.attributes.id, {
+        full_name: this.full_name,
+        email: this.email
+      });
+    }
+  }
+};
+</script>

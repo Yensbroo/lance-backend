@@ -50,3 +50,6 @@ Route::patch('/profile/{profile}', 'ProfileController@update');
 
 //Admin routes
 Route::get('/admins', 'AdminController@index');
+Route::get('/admins/{admin}', 'AdminController@show');
+Route::patch('/admins/{admin}', 'AdminController@update');
+Route::delete('/admins/delete/{admin}', 'AdminController@destroy');

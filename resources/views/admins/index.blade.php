@@ -5,7 +5,7 @@
     <div class="content">
         <div class="container">
         <h3 class="left">Overzicht administrators</h3>
-        <a href="/user/create"><button class="add-btn">+ Gebruiker toevoegen</button></a>
+        <a href="/user/create"><button class="add-btn">+ Admin toevoegen</button></a>
             <table>
                 <thead>
                     <th>Naam</th>
