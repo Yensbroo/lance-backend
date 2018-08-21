@@ -8,7 +8,7 @@
 
         <div class="form-group">
           <label for="full_name">Volledige naam</label>
-          <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}" required> 
+          <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name') }}"> 
           @if ($errors->has('email'))
           <span class="invalid-feedback">
             <strong>{{ $errors->first('email') }}</strong>
@@ -17,15 +17,15 @@
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="text" class="form-control" id="email" name="email" value="{{ old('email')}}" required>
+          <input type="text" class="form-control" id="email" name="email" value="{{ old('email')}}">
         </div>
         <div class="form-group">
           <label for="password">Wachtwoord</label>
-          <input type="password" class="form-control" id="password" name="password" value="{{ old('password')}}" required>
+          <input type="password" class="form-control" id="password" name="password" value="{{ old('password')}}">
         </div>
         <div class="form-group">
           <label for="password">Herhaal wachtwoord</label>
-          <input type="password" class="form-control" id="password2" name="password2" value="{{ old('password2')}}" required>
+          <input type="password" class="form-control" id="password2" name="password2" value="{{ old('password2')}}">
         </div>
         <div class="form-group">
           <label for="">Rol</label>

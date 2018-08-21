@@ -41,22 +41,22 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
-            $user = $request->validate([
+            $userData = $request->validate([
                 'full_name' => 'required',
                 'email' => 'required|unique:users|email',
                 'role_id' => 'required',
                 'password' => 'required|min:6',
                 'password2' => 'required|same:password'
             ]);
-            $user = $request->only([
+            $userData = $request->only([
                 'full_name',
                 'email',
                 'password',
                 'role_id'
             ]);
-            $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
-            USER::create($user);
-            return redirect('/users')->with('flash', 'De gebruiker is aangemaakt!');
+            $userData['password'] = password_hash($userData['password'], PASSWORD_BCRYPT);
+            $user = User::create($userData);
+            return view('users.show', compact('user'))->with('flash', 'De gebruiker is aangemaakt!');
         } catch (ValidationException $exception) {
             dd($exception);
         } catch(\Exception $exception) {
