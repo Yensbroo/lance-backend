@@ -22,8 +22,9 @@ Route::get('/projects', 'ProjectController@index');
 Route::get('/projects/create', 'ProjectController@create');
 Route::post('/projects', 'ProjectController@store')->name('projects');
 Route::get('/projects/{project}', 'ProjectController@show');
-Route::delete('/projects/delete/{project}', ['uses' => 'ProjectController@destroy', 'as' => 'project.destroy']);
+Route::delete('/projects/delete/{project}', 'ProjectController@destroy');
 Route::patch('/projects/{project}', 'ProjectController@update');
+Route::patch('/projects/undelete/{project}', 'ProjectController@undelete');
 
 //category routes
 Route::get('/categories', 'CategoryController@index');
