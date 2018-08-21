@@ -38,6 +38,16 @@
         <div class="form-group">
           <button @click="update" class="btn-create">Bewerk gebruiker</button>
         </div>
+        <form  v-if="deleted_at == null" :action="'/users/delete/' + id" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE')}}
+                <button type="submit" class="btn-delete">Verwijder gebruiker</button>
+                </form>
+                <form  v-else :action="'/users/undelete/' + id" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('PATCH')}}
+                <button type="submit" class="btn-undelete">Zet gebruiker op actief</button>
+                </form>
     </div>
   </div>
 </div>

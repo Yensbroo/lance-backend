@@ -87063,9 +87063,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   data: function data() {
     return {
+      id: this.attributes.id,
       full_name: this.attributes.full_name,
       email: this.attributes.email,
-      role_id: this.attributes.role_id
+      role_id: this.attributes.role_id,
+      deleted_at: this.attributes.deleted_at
     };
   },
 
@@ -87077,9 +87079,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     update: function update() {
       axios.patch("/users/" + this.attributes.id, {
-        full_name: this.attributes.full_name,
-        email: this.attributes.email,
-        role_id: this.attributes.role_id
+        full_name: this.full_name,
+        email: this.email,
+        role_id: this.role_id
       });
     }
   }

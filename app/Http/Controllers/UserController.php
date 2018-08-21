@@ -107,6 +107,14 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->update(['deleted_at' => date('Y-m-d H:i:s')]);
+
+        return back()->with('flash', 'De gebruiker is op inactief gezet');
+    }
+
+    public function undelete(User $user) {
+        $user->update(['deleted_at' => null]);
+
+        return back()->with('flash', 'De gebruiker is terug op actief gezet');
     }
 }

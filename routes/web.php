@@ -39,6 +39,8 @@ Route::get('/users', 'UserController@index');
 Route::get('/user/create', 'UserController@create');
 Route::post('/users', 'UserController@store')->name('users');
 Route::get('/users/{user}', 'UserController@show')->name('user');
+Route::delete('/users/delete/{user}', 'UserController@destroy');
+Route::patch('/users/undelete/{user}', 'UserController@undelete');
 
 //profile routes
 Route::get('/profile/{profile}', 'ProfileController@show');
