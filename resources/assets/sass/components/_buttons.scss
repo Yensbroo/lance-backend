@@ -37,11 +37,19 @@
     margin-bottom: 15px;
 }
 
-.btn-delete {
-    background: $lnc-red;
+.btn-delete,
+.btn-undelete {
     float: right;
     position: relative;
     bottom: 62px;
+}
+
+.btn-delete {
+    background: $lnc-red;
+}
+
+.btn-undelete {
+    background: $lnc-blue;
 }
 
 .trans-btn {
