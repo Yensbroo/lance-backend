@@ -83,10 +83,6 @@ class ProjectController extends Controller
         $checked = $request->has('publised') ? 1 : 0;
         $id = ['user_id' => auth()->id()];
 
-        
-        
-        
-
         return redirect($project->path());
     }
 

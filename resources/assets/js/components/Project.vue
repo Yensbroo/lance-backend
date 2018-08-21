@@ -25,11 +25,6 @@ export default {
     };
   },
 
-  created: function() {
-    console.log(this.project_end);
-    console.log(this.today);
-  },
-
   methods: {
     update() {
       axios.patch("/projects/" + this.attributes.id, {

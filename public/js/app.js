@@ -86720,11 +86720,6 @@ var moment = __webpack_require__(0);
   },
 
 
-  created: function created() {
-    console.log(this.project_end);
-    console.log(this.today);
-  },
-
   methods: {
     update: function update() {
       axios.patch("/projects/" + this.attributes.id, {
@@ -87162,8 +87157,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     update: function update() {
       axios.patch("/profile/" + this.attributes[0].id, {
-        headline: this.attributes[0].headline,
-        bio: this.attributes[0].bio
+        headline: this.headline,
+        bio: this.bio
       });
     }
   }

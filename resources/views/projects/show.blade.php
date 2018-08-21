@@ -11,6 +11,7 @@
 @endif
                    <form action="/projects">
                    {{ method_field('PATCH') }}
+                   {{ csrf_field() }}
                    <div class="form-group">
                         <label for="title">Titel</label>
                         <br>
