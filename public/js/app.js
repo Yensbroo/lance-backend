@@ -86708,6 +86708,8 @@ var moment = __webpack_require__(0);
       user_id: this.attributes.user_id,
       title: this.attributes.title,
       body: this.attributes.body,
+      deleted_at: this.attributes.deleted_at,
+      id: this.attributes.id,
       published: this.attributes.published,
       budget: this.attributes.budget,
       category_id: this.attributes.category_id,

@@ -4,6 +4,11 @@
         <div class="content">
             <div class="container" id="project">
                 <h3>Bewerk project</h3>
+                @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
                    <form action="/projects">
                    {{ method_field('PATCH') }}
                    <div class="form-group">
@@ -50,10 +55,15 @@
                         <button class="btn-create" @click="update">Bewerk project</button>
                     </div>
                    </form>
-                <form action="{{ $project->path() }}" method="POST">
+                <form  v-if="deleted_at == null" :action="'/projects/delete/' + id" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE')}}
                 <button type="submit" class="btn-delete">Verwijder project</button>
+                </form>
+                <form  v-else :action="'/projects/undelete/' + id" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('PATCH')}}
+                <button type="submit" class="btn-undelete">Zet project terug</button>
                 </form>
             </div>
         </div>

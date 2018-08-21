@@ -407,11 +407,19 @@ label {
   margin-bottom: 15px;
 }
 
-.btn-delete {
-  background: #E94F37;
+.btn-delete,
+.btn-undelete {
   float: right;
   position: relative;
   bottom: 62px;
+}
+
+.btn-delete {
+  background: #E94F37;
+}
+
+.btn-undelete {
+  background: #3F88C5;
 }
 
 .trans-btn {
@@ -426,6 +434,18 @@ label {
 
 .trans-btn i {
   color: #313638;
+}
+
+@media (max-width: 933px) {
+  .trans-btn {
+    top: 33px;
+  }
+}
+
+@media (max-width: 712px) {
+  .trans-btn {
+    top: 45px;
+  }
 }
 
 .pagination {
@@ -475,6 +495,7 @@ label {
   border: 1px solid #37A28D;
   -webkit-transition: display 0.2s ease-in;
   transition: display 0.2s ease-in;
+  z-index: 100;
 }
 
 /*!

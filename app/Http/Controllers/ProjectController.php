@@ -147,7 +147,13 @@ class ProjectController extends Controller
         
         $project->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
-        return redirect('/projects')->with('flash', 'Project is verwijderd!');
+        return back()->with('flash', 'Project is verwijderd!');
 
+    }
+
+    public function undelete(Project $project) {
+        $project->update(['deleted_at' => null]);
+
+        return back()->with('flash', 'Het project is terug gezet');
     }
 }

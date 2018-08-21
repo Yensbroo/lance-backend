@@ -37,11 +37,19 @@
     margin-bottom: 15px;
 }
 
-.btn-delete {
-    background: $lnc-red;
+.btn-delete,
+.btn-undelete {
     float: right;
     position: relative;
     bottom: 62px;
+}
+
+.btn-delete {
+    background: $lnc-red;
+}
+
+.btn-undelete {
+    background: $lnc-blue;
 }
 
 .trans-btn {
@@ -54,5 +62,17 @@
     left: 4px;
     i {
         color: $logo-bg;
+    }
+}
+
+@media(max-width: 933px) {
+    .trans-btn {
+        top: 33px;
+    }
+}
+
+@media(max-width: 712px) {
+    .trans-btn {
+        top: 45px;
     }
 }
