@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth')->except(['destroy']);
+        $this->middleware('auth')->except(['destroy', 'show']);
     }
     /**
      * Display a listing of the resource.
@@ -111,7 +111,8 @@ class AdminController extends Controller
      */
     public function show(Admin $admin)
     {
-        return view('admins.show', compact('admin'));
+        $user = Auth()->id();
+        return view('admins.show', compact(['admin', 'user']));
     }
 
     /**
@@ -132,9 +133,15 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Admin $admin)
     {
-        //
+        $admin->update([
+            'full_name' => request('full_name'),
+            'email' => request('email'),
+            'level_id' => request('level_id')
+        ]);
+
+        return redirect('/admins')->with('flash', 'De administrator is bijgewerkt');
     }
 
     /**

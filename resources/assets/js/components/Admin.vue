@@ -19,7 +19,8 @@ export default {
     update() {
       axios.patch("/admins/" + this.attributes.id, {
         full_name: this.full_name,
-        email: this.email
+        email: this.email,
+        level_id: this.level_id
       });
     }
   }
