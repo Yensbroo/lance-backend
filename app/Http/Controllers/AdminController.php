@@ -9,6 +9,10 @@ use App\User;
 use Validator;
 class AdminController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware('auth')->except(['destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,8 @@ class AdminController extends Controller
     public function index()
     {
         $admins = Admin::with('level')->get();
-        return view('admins.index', compact('admins'));
+        $user = Auth()->id();
+        return view('admins.index', compact(['admins', 'user']));
     }
 
     /**
@@ -138,8 +143,9 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Admin $admin)
     {
-        //
+        $admin->delete();
+        return back()->with('flash', 'De administrator is verwijderd');
     }
 }
