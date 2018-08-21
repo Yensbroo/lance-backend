@@ -38,6 +38,7 @@ Route::delete('/category/delete/{category}', 'CategoryController@destroy');
 Route::get('/users', 'UserController@index');
 Route::get('/user/create', 'UserController@create');
 Route::post('/users', 'UserController@store')->name('users');
+Route::patch('/users/{user}', 'UserController@update');
 Route::get('/users/{user}', 'UserController@show')->name('user');
 Route::delete('/users/delete/{user}', 'UserController@destroy');
 Route::patch('/users/undelete/{user}', 'UserController@undelete');

@@ -5,25 +5,24 @@
             <div class="container" id="project">
                 <h3>Bewerk project</h3>
                 @if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
-                   <form action="/projects">
-                   {{ method_field('PATCH') }}
-                   {{ csrf_field() }}
-                   <div class="form-group">
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+                @endif
+                <form action="/projects">
+                    {{ method_field('PATCH') }} {{ csrf_field() }}
+                    <div class="form-group">
                         <label for="title">Titel</label>
                         <br>
                         <input type="text" v-model="title" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="category">Categorie</label>
-                    <select v-model="category_id" class="select_style form-control">
+                        <select v-model="category_id" class="select_style form-control">
                             <option value="">Kies een categorie...</option>
-                                <option v-bind:value="category.id" v-for="category in categories">@{{ category.name }}</option>
+                            <option v-bind:value="category.id" v-for="category in categories">@{{ category.name }}</option>
                         </select>
-                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="startDate">Start van het project</label>
                         <br>
@@ -41,10 +40,10 @@
                     </div>
                     <div class="form-group">
                         <label for="published">Gepubliceerd</label>
-                        <br> 
+                        <br>
                         <label class="switch">
-                        <input type="checkbox" v-model="published" class="published" checked="true">
-                        <span class="slider"></span>
+                            <input type="checkbox" v-model="published" class="published" checked="true">
+                            <span class="slider"></span>
                         </label>
                     </div>
                     <div class="form-group">
@@ -55,16 +54,14 @@
                     <div class="form-group">
                         <button class="btn-create" @click="update">Bewerk project</button>
                     </div>
-                   </form>
-                <form  v-if="deleted_at == null" :action="'/projects/delete/' + id" method="POST">
-                {{ csrf_field() }}
-                {{ method_field('DELETE')}}
-                <button type="submit" class="btn-delete">Verwijder project</button>
                 </form>
-                <form  v-else :action="'/projects/undelete/' + id" method="POST">
-                {{ csrf_field() }}
-                {{ method_field('PATCH')}}
-                <button type="submit" class="btn-undelete">Zet project terug</button>
+                <form v-if="deleted_at == null" :action="'/projects/delete/' + id" method="POST">
+                    {{ csrf_field() }} {{ method_field('DELETE')}}
+                    <button type="submit" class="btn-delete">Verwijder project</button>
+                </form>
+                <form v-else :action="'/projects/undelete/' + id" method="POST">
+                    {{ csrf_field() }} {{ method_field('PATCH')}}
+                    <button type="submit" class="btn-undelete">Zet project terug</button>
                 </form>
             </div>
         </div>

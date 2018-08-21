@@ -96,7 +96,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->update([
+            'full_name' => request('full_name'),
+            'email' => request('email'),
+            'role_id' => request('role_id')
+        ]);
+        return redirect('/users')->with('flash', 'De gebruiker is bijgewerkt');
     }
 
     /**
